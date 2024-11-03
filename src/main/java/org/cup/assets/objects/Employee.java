@@ -10,7 +10,7 @@ import org.cup.engine.core.nodes.components.defaults.Animator;
 
 public class Employee extends GameNode {
     private Animator animator = new Animator(transform, 2);
-    private String spritesFolder = PathHelper.sprites + "placeholder-guy\\";
+    private String spritesFolder = PathHelper.sprites + "employee\\";
     private float speed = 100;
 
     // State Machine
@@ -27,7 +27,8 @@ public class Employee extends GameNode {
 
     public Employee(Room room) {
         animator.addAnimation("idle", new Animation(PathHelper.getFilePaths(spritesFolder + "idle")));
-        animator.addAnimation("run", new Animation(PathHelper.getFilePaths(spritesFolder + "run")));
+        animator.addAnimation("walk", new Animation(PathHelper.getFilePaths(spritesFolder + "walk")));
+        animator.addAnimation("walk-package", new Animation(PathHelper.getFilePaths(spritesFolder + "walk-package")));
 
         animator.setPivot(Renderer.BOTTOM_PIVOT);
 
@@ -39,7 +40,7 @@ public class Employee extends GameNode {
     @Override
     public void init() {
         addChild(animator);
-        transform.setScale(new Vector(50));
+        transform.setScale(new Vector(51, 58));
         transform.setPosition(new Vector(200, 0));
     }
 
@@ -56,7 +57,8 @@ public class Employee extends GameNode {
         double step = speed * GameManager.getDeltaTime();
 
         if (status == TAKE_RESOURCE) {
-            if (pos.x > roomMachine.transform.getPosition().x) {
+            double machineOffset = roomMachine.transform.getScale().x - 50;
+            if (pos.x > roomMachine.transform.getPosition().x + machineOffset) {
                 // Move Towards the machine
                 transform.move(Vector.LEFT.multiply(step));
             } else {
@@ -98,10 +100,11 @@ public class Employee extends GameNode {
             return;
         flipCharacter();
         status = TAKE_RESOURCE;
-        animator.play("run");
+        animator.play("walk");
     }
 
     private void deliverResource() {
+        animator.play("walk-package");
         status = DELIVER_RESOURCE;
         flipCharacter();
     }

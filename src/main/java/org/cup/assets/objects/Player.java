@@ -11,21 +11,21 @@ import org.cup.engine.core.nodes.components.defaults.Animator;
 
 public class Player extends GameNode {
     private Animator animator = new Animator(transform, 5);
-    private String spritesFolder = PathHelper.sprites + "placeholder-guy\\";
+    private String spritesFolder = PathHelper.sprites + "player\\";
     
     @Override
     public void init() {
         addChild(animator);
-        animator.addAnimation("base", new Animation(PathHelper.getFilePaths(spritesFolder + "idle")));
+        animator.addAnimation("idle", new Animation(PathHelper.getFilePaths(spritesFolder + "idle")));
         animator.setPivot(Renderer.BOTTOM_PIVOT);
-        transform.setScale(new Vector(75));
+        transform.setScale(new Vector(105, 134));
         transform.setPosition(new Vector(60, 0));
     }
 
     @Override
     public void onEnable() {
         Debug.log("Player Enabled");
-        animator.play("base");
+        animator.play("idle");
     }
 
     @Override
