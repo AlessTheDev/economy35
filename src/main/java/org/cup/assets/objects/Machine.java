@@ -4,16 +4,14 @@ import org.cup.assets.PathHelper;
 import org.cup.engine.Vector;
 import org.cup.engine.core.nodes.GameNode;
 import org.cup.engine.core.nodes.components.Renderer;
+import org.cup.engine.core.nodes.components.defaults.Animation;
+import org.cup.engine.core.nodes.components.defaults.Animator;
 import org.cup.engine.core.nodes.components.defaults.SpriteRenderer;
 
 import java.util.Random;
 
 public class Machine extends GameNode {
-    private final String normalSprite = PathHelper.getSpritePath("machine\\machine1.png");
-    private final String errorSprite = PathHelper.getSpritePath("machine\\machineError.png");
-    private final String boxSprite = PathHelper.getSpritePath("machine\\machineBox.png");
-    
-    private SpriteRenderer spriteRenderer = new SpriteRenderer(normalSprite, transform, 1);
+    private final Animator animator = new Animator(transform, 1);
 
     private Random randomGen = new Random();
 
@@ -26,10 +24,32 @@ public class Machine extends GameNode {
 
     @Override
     public void init() {
-        addChild(spriteRenderer);
-        spriteRenderer.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
+        addChild(animator);
+        animator.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
+
+        addAnimationsToAnimator();
 
         transform.setScale(new Vector(100));
+    }
+
+    private void addAnimationsToAnimator(){
+
+        String spritesFolder = PathHelper.sprites + "machine\\1\\";
+
+        Animation failAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "fail"), false);
+        failAnimation.addLastFrameListener(() -> {
+            animator.play("loading");
+        });
+
+        Animation packageOutAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "success\\package-out"), false);
+        packageOutAnimation.addLastFrameListener(() -> {
+            animator.play("success-idle");
+        });
+
+        animator.addAnimation("fail", failAnimation);
+        animator.addAnimation("loading", new Animation(PathHelper.getFilePaths(spritesFolder + "loading")));
+        animator.addAnimation("success-package-out", packageOutAnimation);
+        animator.addAnimation("success-idle", new Animation(PathHelper.getFilePaths(spritesFolder + "success\\idle")));
     }
 
     @Override
@@ -41,11 +61,11 @@ public class Machine extends GameNode {
     }
 
     public void error() {
-        spriteRenderer.setSprite(errorSprite);
+        animator.play("fail");
     }
 
     public void success() {
-        spriteRenderer.setSprite(boxSprite);
+        animator.play("success-package-out");
         hasProducedResource = true;
     }
 
@@ -66,7 +86,7 @@ public class Machine extends GameNode {
 
     // Reset the machine taking away its resource
     public void takeResource() {
-        spriteRenderer.setSprite(normalSprite);
+        animator.play("loading");
         hasProducedResource = false;
         lastAttempt = System.currentTimeMillis();
     }

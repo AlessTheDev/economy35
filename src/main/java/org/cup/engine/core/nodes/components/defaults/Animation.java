@@ -98,7 +98,6 @@ public class Animation {
         updateScale(scale);
         
         if (isLastFrame()) {
-            notifyLastFrameListeners();
             if(loop){
                 currentFrameIndex = 0;
             }
@@ -115,7 +114,10 @@ public class Animation {
      * @return True if the current frame is the last; otherwise false
      */
     public boolean isLastFrame() {
-        return currentFrameIndex >= spritePaths.length;
+        boolean isLastFrame = currentFrameIndex >= spritePaths.length;
+        if(isLastFrame)
+            notifyLastFrameListeners();
+        return isLastFrame;
     }
     /**
      * Resets the animation to the first frame.
