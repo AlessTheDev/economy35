@@ -29,7 +29,7 @@ public class Machine extends GameNode {
 
         addAnimationsToAnimator();
 
-        transform.setScale(new Vector(100));
+        transform.setScale(new Vector(150));
     }
 
     private void addAnimationsToAnimator(){
