@@ -74,7 +74,8 @@ public class Painter extends JPanel {
 
         for (int i = 0; i < size; i++) {
             Renderer component = queue.get(i);
-            component.render(g2);
+            if (component != null)
+                component.render(g2);
         }
     }
 }

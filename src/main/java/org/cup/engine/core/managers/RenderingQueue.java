@@ -25,7 +25,11 @@ public class RenderingQueue {
      *
      * @param obj The {@code Renderer} to add.
      */
-    public void addObject(Renderer obj) {
+    public synchronized void addObject(Renderer obj) {
+        // "put it under the carpet" type solution
+        if (renderers.contains(obj)) // ? why is this even a problem anyways 
+            return;
+
         int index = findInsertionIndex(obj.getLayer());
         renderers.add(index, obj); // Insert at the correct position
     }
@@ -35,8 +39,10 @@ public class RenderingQueue {
      *
      * @param obj The {@code Renderer} to remove.
      */
-    public void removeObject(Renderer obj) {
-        renderers.remove(obj);
+    public synchronized void removeObject(Renderer obj) {
+        while (renderers.contains(obj)) {
+            renderers.remove(obj);
+        }
     }
 
     /**
