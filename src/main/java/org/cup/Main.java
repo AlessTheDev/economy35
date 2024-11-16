@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         String logo = System.getProperty("user.dir")
             + File.separator + "src" + File.separator + "main" + File.separator + "java" + File.separator + "org" + File.separator + "cup" + File.separator + "logo.png";
-        Game game = new Game("Graphics Playground", 1280, 720, logo, 1f, false);
+        Game game = new Game("Economy35", 1280, 720, logo, 1f, false);
 
         Tutorial tutorial = new Tutorial();
         game.addScene(tutorial);
