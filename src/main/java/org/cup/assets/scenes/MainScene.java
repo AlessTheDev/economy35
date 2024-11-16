@@ -37,17 +37,14 @@ public class MainScene extends Scene {
     
     private Rectangle floor;
 
-    private static Clip mainTheme;
-    private static Clip taxesTheme;
+    private static Clip mainTheme = SoundManager.createClip(PathHelper.music + "MainTheme.wav", true);
+    private static Clip taxesTheme = SoundManager.createClip(PathHelper.music + "TaxesTheme.wav", true);
 
     public MainScene(){
         scrollableTransform = new Transform();
         statsPanel = new StatsPanel();
         building = new Building();
-
-        mainTheme = SoundManager.createClip(PathHelper.music + "MainTheme.wav", true);
-        taxesTheme = SoundManager.createClip(PathHelper.music + "TaxesTheme.wav", true);
-    }
+    } 
 
     @Override
     public void init() {
