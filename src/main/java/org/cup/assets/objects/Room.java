@@ -2,6 +2,7 @@ package org.cup.assets.objects;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.io.File;
 
 import javax.swing.JPanel;
 
@@ -76,7 +77,7 @@ public class Room extends Floor implements ElevatorListener {
         tubeTransform.setScale(new Vector(40, 175));
         tubeTransform.setParentTransform(transform);
 
-        SpriteRenderer tubeRenderer = new SpriteRenderer(PathHelper.sprites + "building\\Pipe.png", tubeTransform, 5);
+        SpriteRenderer tubeRenderer = new SpriteRenderer(PathHelper.sprites + "building" + File.separator + "Pipe.png", tubeTransform, 5);
         tubeRenderer.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
         addChild(tubeRenderer);
 

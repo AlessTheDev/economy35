@@ -8,6 +8,8 @@ import org.cup.engine.core.nodes.components.Renderer;
 import org.cup.engine.core.nodes.components.defaults.Animation;
 import org.cup.engine.core.nodes.components.defaults.Animator;
 
+import java.io.File;
+
 public class Employee extends GameNode {
     private Animator animator = new Animator(transform, 2);
     private float speed = 100;
@@ -30,7 +32,7 @@ public class Employee extends GameNode {
     public Employee(Room room, int n) {
         employeeNumber = n;
 
-        String spritesFolder = PathHelper.sprites + "employee\\";
+        String spritesFolder = PathHelper.sprites + "employee" + File.separator;
 
         Animation idle = new Animation(PathHelper.getFilePaths(spritesFolder + "idle"));
         idle.setLoopType(Animation.PING_PONG_LOOP);

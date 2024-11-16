@@ -2,6 +2,7 @@ package org.cup.assets.objects;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.io.File;
 
 import org.cup.assets.PathHelper;
 import org.cup.assets.UI.GameLabel;
@@ -51,7 +52,7 @@ public class DayCycle extends GameNode {
         isPlayingTaxMusic = false;
 
         // Animator
-        String[] sprites = PathHelper.getFilePaths(PathHelper.sprites + "day-night-cycle\\");
+        String[] sprites = PathHelper.getFilePaths(PathHelper.sprites + "day-night-cycle" + File.separator);
         Animation dayToNight = new Animation(sprites, false);
 
         Utils.reverseArray(sprites);

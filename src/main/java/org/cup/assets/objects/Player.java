@@ -8,9 +8,11 @@ import org.cup.engine.core.nodes.components.Renderer;
 import org.cup.engine.core.nodes.components.defaults.Animation;
 import org.cup.engine.core.nodes.components.defaults.Animator;
 
+import java.io.File;
+
 public class Player extends GameNode {
     private Animator animator = new Animator(transform, 5);
-    private String spritesFolder = PathHelper.sprites + "player\\";
+    private String spritesFolder = PathHelper.sprites + "player" + File.separator;
     
     @Override
     public void init() {

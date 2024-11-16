@@ -8,6 +8,8 @@ import org.cup.engine.core.nodes.components.Renderer;
 import org.cup.engine.core.nodes.components.defaults.Animation;
 import org.cup.engine.core.nodes.components.defaults.Animator;
 
+import java.io.File;
+
 public class DropZone extends GameNode {
     private final Animator animator;
 
@@ -30,7 +32,7 @@ public class DropZone extends GameNode {
     }
 
     private void initAnimator(){
-        String baseSpritePath = PathHelper.sprites + "dropzone\\";
+        String baseSpritePath = PathHelper.sprites + "dropzone" + File.separator;
 
         Animation successAnimation = new Animation(PathHelper.getFilePaths(baseSpritePath + "success"));
         successAnimation.addLastFrameListener(() -> {

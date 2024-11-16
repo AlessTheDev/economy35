@@ -11,6 +11,8 @@ import org.cup.engine.core.nodes.components.Renderer;
 import org.cup.engine.core.nodes.components.defaults.Animation;
 import org.cup.engine.core.nodes.components.defaults.Animator;
 
+import java.io.File;
+
 // the guy who will take a tax every night  
 public class TaxGuy extends GameNode {
     private Animator animator = new Animator(transform, 5);
@@ -34,8 +36,8 @@ public class TaxGuy extends GameNode {
 
         // Animator
         animator.setPivot(Renderer.BOTTOM_PIVOT);
-        Animation idle = new Animation(PathHelper.getFilePaths(PathHelper.sprites + "tax-guy\\idle"));
-        Animation walk = new Animation(PathHelper.getFilePaths(PathHelper.sprites + "tax-guy\\walk"));
+        Animation idle = new Animation(PathHelper.getFilePaths(PathHelper.sprites + "tax-guy" + File.separator + "idle"));
+        Animation walk = new Animation(PathHelper.getFilePaths(PathHelper.sprites + "tax-guy" + File.separator + "walk"));
         idle.setLoopType(Animation.NORMAL_LOOP);
 
         addChild(animator);

@@ -14,6 +14,7 @@ import org.cup.engine.core.nodes.components.defaults.SpriteRenderer;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 
 import javax.swing.JLabel;
 
@@ -30,7 +31,7 @@ public class TutorialSlides extends GameNode implements KeyListener {
         }
     }
 
-    private String slidesPath = PathHelper.sprites + "\\tutorial\\Slides-";
+    private String slidesPath = PathHelper.sprites + File.separator + "tutorial" + File.separator + "Slides-";
 
     private Slide[] slides = new Slide[] {
             new Slide(slidesPath + "1.png", "Welcome, new entrepreneur, to \"economy 35\", your new company"),

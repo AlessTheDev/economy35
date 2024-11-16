@@ -1,6 +1,7 @@
 package org.cup.assets.objects;
 
 import java.util.Random;
+import java.io.File;
 
 import org.cup.assets.PathHelper;
 import org.cup.assets.scenes.MainScene;
@@ -21,7 +22,7 @@ public class BoostController extends GameNode {
     public BoostController(UpgradeRoom upgradeRoom){
         this.upgradeRoom = upgradeRoom;
         for (int i = 0; i < employeeBoostParticles.length; i++) {
-            employeeBoostParticles[i] = new Particle(PathHelper.sprites + "upgrades\\star.png", new Vector(randomGen.nextDouble(90)), 5);
+            employeeBoostParticles[i] = new Particle(PathHelper.sprites + "upgrades" + File.separator + "star.png", new Vector(randomGen.nextDouble(90)), 5);
             employeeBoostParticles[i].setCollisionBox(upgradeRoom.getCollisionBox());
         }
     }

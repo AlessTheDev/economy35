@@ -1,5 +1,6 @@
 package org.cup.assets.objects;
 
+import java.io.File;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 
@@ -41,8 +42,8 @@ class UpgradeRoom extends Floor {
         rendererTransform.setScale(new Vector(Building.ROOM_WIDTH, Building.ROOM_HEIGHT));
 
         Animation locked = new Animation(
-                new String[] { PathHelper.getSpritePath("\\building\\rooms\\room-empty.png") }, false);
-        Animation idle = new Animation(PathHelper.getFilePaths(PathHelper.sprites + "\\building\\rooms\\boost-room"));
+                new String[] { PathHelper.getSpritePath(File.separator + "building"+ File.separator + "rooms"+ File.separator + "room-empty.png") }, false);
+        Animation idle = new Animation(PathHelper.getFilePaths(PathHelper.sprites + File.separator + "building"+ File.separator + "rooms"+ File.separator + "boost-room"));
 
         animator = new Animator(rendererTransform, 1);
         animator.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
@@ -62,7 +63,7 @@ class UpgradeRoom extends Floor {
         tubeTransform.setPosition(new Vector(Building.ROOM_WIDTH, 0));
         tubeTransform.setScale(new Vector(41, 175));
         tubeTransform.setParentTransform(transform);
-        SpriteRenderer tubeRenderer = new SpriteRenderer(PathHelper.sprites + "building\\Pipe.png", tubeTransform, 5);
+        SpriteRenderer tubeRenderer = new SpriteRenderer(PathHelper.sprites + "building" + File.separator + "Pipe.png", tubeTransform, 5);
         tubeRenderer.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
         addChild(tubeRenderer);
 

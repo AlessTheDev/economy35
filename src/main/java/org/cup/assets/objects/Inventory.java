@@ -2,6 +2,7 @@ package org.cup.assets.objects;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.io.File;
 
 import javax.swing.JPanel;
 
@@ -26,7 +27,7 @@ public class Inventory extends Floor {
     private int increaseInventoryCost = 50;
     private int increaseProductValueCost = 80;
 
-    private static final String SPRITE_BASE_PATH = PathHelper.sprites + "building\\stock\\";
+    private static final String SPRITE_BASE_PATH = PathHelper.sprites + "building" + File.separator + "stock" + File.separator;
 
     // UI
     private JPanel buttonsPanel = new JPanel();

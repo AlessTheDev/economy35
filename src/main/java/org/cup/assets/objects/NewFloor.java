@@ -1,6 +1,7 @@
 package org.cup.assets.objects;
 
 import java.awt.GridLayout;
+import java.io.File;
 
 import javax.swing.JPanel;
 
@@ -34,7 +35,7 @@ public class NewFloor extends Floor {
         animator = new Animator(rendererTransform, layer);
         animator.addAnimation(
                 "idle",
-                new Animation(PathHelper.getFilePaths(PathHelper.sprites + "\\building\\floor-under-construction")));
+                new Animation(PathHelper.getFilePaths(PathHelper.sprites + File.separator + "building" + File.separator + "floor-under-construction")));
 
         animator.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
         rendererTransform.setParentTransform(transform);

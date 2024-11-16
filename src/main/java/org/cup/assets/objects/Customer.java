@@ -1,6 +1,7 @@
 package org.cup.assets.objects;
 
 import java.util.Random;
+import java.io.File;
 
 import org.cup.assets.PathHelper;
 import org.cup.engine.Vector;
@@ -35,7 +36,7 @@ public class Customer extends GameNode {
     public Customer() {
         isFancy = false;
 
-        String spritesFolder = PathHelper.sprites + "customer\\";
+        String spritesFolder = PathHelper.sprites + "customer" + File.separator;
 
         Animation walk = new Animation(PathHelper.getFilePaths(spritesFolder + "walk"));
         Animation walkPackage = new Animation(PathHelper.getFilePaths(spritesFolder + "walk-package"));

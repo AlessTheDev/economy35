@@ -14,6 +14,7 @@ import org.cup.engine.core.nodes.components.defaults.Animator;
 import java.awt.Color;
 import java.util.HashMap;
 import java.util.Random;
+import java.io.File;
 
 import javax.sound.sampled.Clip;
 
@@ -96,7 +97,7 @@ public class Machine extends GameNode {
      * @param level the level of the machine
      */
     private void addAnimations(int level){
-        String spritesFolder = PathHelper.sprites + "machine\\" + level + "\\";
+        String spritesFolder = PathHelper.sprites + "machine" + File.separator + level + File.separator;
 
         // Animation for failure (when resource creation fails)
         Animation failAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "fail"), false);
@@ -105,7 +106,7 @@ public class Machine extends GameNode {
         });
 
         // Animation for successful resource creation
-        Animation packageOutAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "success\\package-out"),
+        Animation packageOutAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "success" + File.separator + "package-out"),
                 false);
         packageOutAnimation.addLastFrameListener(() -> {
             playAnimation("success-idle"); // Transition to idle after package-out animation
@@ -115,7 +116,7 @@ public class Machine extends GameNode {
         animator.addAnimation("fail-" + level, failAnimation);
         animator.addAnimation("loading-" + level, new Animation(PathHelper.getFilePaths(spritesFolder + "loading")));
         animator.addAnimation("success-package-out-" + level, packageOutAnimation);
-        animator.addAnimation("success-idle-" + level, new Animation(PathHelper.getFilePaths(spritesFolder + "success\\idle")));
+        animator.addAnimation("success-idle-" + level, new Animation(PathHelper.getFilePaths(spritesFolder + "success"+ File.separator + "idle")));
     }
 
     private void playAnimation(String animation){

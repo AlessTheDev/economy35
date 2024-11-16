@@ -6,6 +6,7 @@ import org.cup.engine.Vector;
 import org.cup.engine.core.Debug;
 import org.cup.engine.core.nodes.GameNode;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class Building extends GameNode {
@@ -76,7 +77,7 @@ public class Building extends GameNode {
 
         int nRooms = floors.size() - 1;  // Ignore inventory
 
-        String basePath = PathHelper.sprites + "building\\rooms\\room-background";
+        String basePath = PathHelper.sprites + "building" + File.separator + "rooms" + File.separator + "room-background";
         String finalPath = basePath + (nRooms % 2 == 0 ? "-decorated" : "") + ".png";
 
         Vector newRoomPos = getNewFloorPos(nRooms);

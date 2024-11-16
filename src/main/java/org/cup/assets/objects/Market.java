@@ -1,6 +1,7 @@
 package org.cup.assets.objects;
 
 import java.util.ArrayList;
+import java.io.File;
 
 import javax.sound.sampled.Clip;
 
@@ -53,7 +54,7 @@ public class Market extends GameNode {
 
     private void addAnimations(int level){
         // Define the sprites folder path for the animations
-        String spritesFolder = PathHelper.sprites + "shop\\" + level + "\\";
+        String spritesFolder = PathHelper.sprites + "shop" + File.separator + level + File.separator;
 
         // Create a sell animation that transitions back to idle after it finishes
         Animation sellAnimation = new Animation(PathHelper.getFilePaths(spritesFolder + "sell"), false);

@@ -13,6 +13,7 @@ import org.cup.engine.core.nodes.components.defaults.Transform;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.io.File;
 
 public class Elevator extends GameNode implements KeyListener {
     public interface ElevatorListener {
@@ -34,7 +35,7 @@ public class Elevator extends GameNode implements KeyListener {
         // graphic part of the cab
         Transform spriteTransform = new Transform(transform);
         spriteTransform.setScale(new Vector(121, 175));
-        SpriteRenderer sr = new SpriteRenderer(PathHelper.sprites + "\\building\\Lift.png", spriteTransform, currentFloor);
+        SpriteRenderer sr = new SpriteRenderer(PathHelper.sprites + File.separator + "building" + File.separator + "Lift.png", spriteTransform, currentFloor);
         
         sr.setPivot(Renderer.BOTTOM_LEFT_PIVOT);
         addChild(sr);
