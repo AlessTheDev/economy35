@@ -38,6 +38,7 @@ To simplify development and enhance performance, we developed a custom library c
 
 - **Java Runtime Environment**: Version `17.0.9` or higher to run the jar file.
 - Windows OS for running the `.exe` file (optional).
+- **Python**: Version `3.10` or higher if building from source (optional) 
 
 ### Required File Structure
 
@@ -71,6 +72,9 @@ To compile the project manually:
 2. Use Gradle to build executable files:
     - `.jar`: `./gradlew build`
     - `.exe`: `./gradlew createExe`
+3. Copy all necessary assets into the build folder with the compiled game:
+    - Run `build_files.py` to do it automatically
+    - Manually copy every asset (`sprites/`, `UI/`, `audio/` and `logo.png`) into `build/{executable,lib}/main/`
 
 ## Project Structure
 
@@ -80,7 +84,7 @@ The project is organized as follows:
 src/main/java/org/cup
 ├── assets           # Resource management (audio, graphics, logic)
     ├── audio        
-    ├── compnents    # Nodes that intended to work attached to objects
+    ├── components   # Nodes that intended to work attached to objects
     ├── objects      # Main game classes (machines, customers, employees, etc.)
     ├── logic        # Classes for thread management and other logic
     ├── managers     # Specialised nodes that can only have one instance
