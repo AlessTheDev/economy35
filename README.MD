@@ -108,11 +108,11 @@ For more details, consult the Javadoc documentation or the [engine-docs.md](./en
 
 This repository is licensed under multiple licenses:
 - **Code**: GNU General Public License v3 (see [LICENSE.md](LICENSE.md)).
-- **Art Assets**: Creative Commons Attribution-ShareAlike 4.0 (see [art-license.md](src\main\java\org\cup\assets\sprites\art-license.md)).
-- **Sound and Music**: Third-party assets with separate licenses (see [audio-license.md](src\main\java\org\cup\assets\audio\audio-license.md)).
+- **Art Assets**: Creative Commons Attribution-ShareAlike 4.0 (see [art-license.md](src/main/java/org/cup/assets/sprites/art/license.md)).
+- **Sound and Music**: Third-party assets with separate licenses (see [audio-license.md](src/main/java/org/cup/assets/audio/audio/license.md)).
 
 ### Summary of License Terms
 1. You can modify and redistribute the code, provided you release it under GPL v3.
 2. You can use, adapt, and redistribute the art assets, provided you give credit and use the same CC BY-SA 4.0 license.
-3. Sound and music files may have additional restrictions. Please refer to [audio-license.md](src\main\java\org\cup\assets\audio\audio-license.md).
+3. Sound and music files may have additional restrictions. Please refer to [audio-license.md](src/main/java/org/cup/assets/audio/audio-license.md).
 ---
